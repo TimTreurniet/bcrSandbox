@@ -12,13 +12,11 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 import _ from 'lodash'
-import ws from '@/services/wsService'
 
 export default {
   name: "Camera",
   data() {
     return {
-      wsConnection: null,
       messages: [],
       bridgeSelected: 'test'
     };
@@ -38,10 +36,7 @@ export default {
       this.cameras.push(message['camera'])
     }
   },
-  created() {
-    this.$store.dispatch('camera/getCameras')
-    this.wsConnection = ws.getConnection(this.bridgeSelected, this.addToMessages)
-  }
+ 
 };
 </script>
 

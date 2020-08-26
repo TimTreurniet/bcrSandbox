@@ -330,7 +330,6 @@ export default {
     cameras: state => state.camera.cameras,
     clips: state => state.clip.clips,
     tracks: state => state.track.tracks,
-    heatmap: state => state.bridge.heatmap
   }),
   mounted() {
     this.canvas = document.getElementById("topdown-canvas");

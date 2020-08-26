@@ -36,7 +36,6 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
-import ws from "@/services/wsService";
 import moment from "moment";
 
 import TrackListView from "./TrackListView.vue";
@@ -56,7 +55,8 @@ export default {
       bridgeDangerBbox: undefined,
       bridgeBbox: undefined,
       showCam: false,
-      show: true
+      show: true,
+      tracks: []
     };
   },
   components: { TrackListView, CameraView, SchematicView, SuggestionView },
@@ -146,26 +146,7 @@ export default {
       }
     },
   },
-  computed: mapState({
-    cameras: (state) => state.camera.cameras,
-    clips: (state) => state.clip.clips,
-    tracks: (state) => state.track.tracks,
-    bridges: state => state.bridge.bridges,
-    heatmap: state => state.bridge.heatmap,
-    activeTrack: state => state.track.active,
-  }),
   mounted() {},
-  created() {
-    // TODO add logic for getting correct data for this specific bridge
-    this.$store.dispatch("bridge/getBridges");
-    this.$store.dispatch("camera/getCameras");
-    this.$store.dispatch("clip/getClips");
-    this.$store.dispatch("track/getTracks");
-    this.wsConnection = ws.getConnection(
-      this.bridgeSelected,
-      this.receiveWebSocketData
-    );
-  },
 };
 </script>
 

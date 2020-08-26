@@ -12,13 +12,11 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 import _ from 'lodash'
-import ws from '@/services/wsService'
 
 export default {
   name: "Track",
   data() {
     return {
-      wsConnection: null,
       messages: [],
       bridgeSelected: 'test'
     };
@@ -36,16 +34,7 @@ export default {
       }
     }
   },
-  computed: mapState({
-    tracks: state => state.track.tracks,
-    orderedTracks: function () {
-      return _.orderBy(this.tracks, 'updated_at', 'desc')
-    }
-  }),
-  created() {
-    this.$store.dispatch('track/getTracksNoData')
-    this.wsConnection = ws.getConnection(this.bridgeSelected, this.addToMessages)
-  }
+
 };
 </script>
 

@@ -1,5 +1,3 @@
-import authService from '../../services/authService'
-
 const state = {
   user: {},
   isModalOpen: false,
@@ -26,30 +24,13 @@ const actions = {
   authenticate ({commit}, credentials) {
     if (credentials) {
       const {username, password} = credentials;
-      return authService.obtainToken({username, password})
-      .then(auth => {
-        commit('updateToken', auth.token)
-        authService.fetchUser()
-        .then(user => {
-          commit('setUser', {user:user, isAuthenticated:true})
-        })
-      })
+      return 200
     } else {
-      return authService.fetchUser()
-      .then(user => {
-        commit('setUser', {user:user, isAuthenticated:true})
-      })
+      return 400
     }
   },
   authenticateOrToggleModal ({commit}, next) {
-    return authService.fetchUser()
-    .then(user => {
-      commit('setUser', {user:user, isAuthenticated:true})
-      next()
-    })
-    .catch(() => 
-      commit('toggleModal')
-    )
+    return 200
   },
   logout ({commit}) {
     commit('setUser', {user:null, isAuthenticated:false})

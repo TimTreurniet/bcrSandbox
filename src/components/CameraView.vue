@@ -191,12 +191,6 @@ export default {
       this.updateCamera(newCamera, true);
     }
   },
-  computed: mapState({
-    activeCamera: state => state.camera.active,
-    activeTrack: state => state.track.active,
-    clips: state => state.clip.clips,
-    cameras: state => state.camera.cameras
-  }),
   mounted() {},
   created() {
     // TODO add logic for getting correct data for this specific bridge

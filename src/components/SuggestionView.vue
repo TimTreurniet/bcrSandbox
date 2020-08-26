@@ -131,11 +131,6 @@ export default {
     tracks() {
     }
   },
-  computed: mapState({
-    activeTrack: state => state.track.active,
-    tracks: state => state.track.tracks,
-    suggestions: state => state.track.suggestions
-  }),
   mounted() {},
   created() {
     this.getSuggestions(this.activeTrack);

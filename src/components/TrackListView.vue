@@ -144,10 +144,6 @@ export default {
     tracks() {
     }
   },
-  computed: mapState({
-    activeTrack: state => state.track.active,
-    tracks: state => state.track.tracks
-  }),
   mounted() {},
   created() {}
 };

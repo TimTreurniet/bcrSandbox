@@ -12,13 +12,11 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 import _ from 'lodash'
-import ws from '@/services/wsService'
 
 export default {
   name: "Clip",
   data() {
     return {
-      wsConnection: null,
       messages: [],
       bridgeSelected: 'test'
     };
@@ -37,10 +35,6 @@ export default {
       this.messages.push(message)
       this.clips.push(message['clip'])
     }
-  },
-  created() {
-    this.$store.dispatch('clip/getClips')
-    this.wsConnection = ws.getConnection(this.bridgeSelected, this.addToMessages)
   },
 };
 </script>

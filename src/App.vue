@@ -13,13 +13,6 @@
           v-if="$store.state.auth.isAuthenticated"
           :to="{ name: 'bridge-selected', params: {name: 'test'} }"
         >Bridge Selected (test)</b-nav-item>
-        <b-nav-item-dropdown text="Entities" left v-if="$store.state.auth.isAuthenticated && debug">
-          <b-dropdown-item :to="{ name: 'entity-bridge' }">Bridges</b-dropdown-item>
-          <b-dropdown-item :to="{ name: 'entity-camera' }">Cameras</b-dropdown-item>
-          <b-dropdown-item :to="{ name: 'entity-clip' }">Clips</b-dropdown-item>
-          <b-dropdown-item :to="{ name: 'entity-detection' }">Detections</b-dropdown-item>
-          <b-dropdown-item :to="{ name: 'entity-track' }">Tracks</b-dropdown-item>
-        </b-nav-item-dropdown>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
         <b-nav-item v-if="debug" href="http://localhost:8000/api/">API docs</b-nav-item>
