@@ -1,11 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
-import Camera from '@/components/entities/Camera'
-import Clip from '@/components/entities/Clip'
-import Detection from '@/components/entities/Detection'
-import Bridge from '@/components/entities/Bridge'
-import Track from '@/components/entities/Track'
 import BridgeOverview from '@/components/BridgeOverview'
 import BridgeSelected from '@/components/BridgeSelected'
 
@@ -36,46 +31,6 @@ let router = new Router({
             meta: {
                 requiresAuth: false,
             },
-        },
-        {
-            path: '/entity/camera',
-            name: 'entity-camera',
-            component: Camera,
-            meta: {
-                requiresAuth: false,
-            }
-        },
-        {
-            path: '/entity/clip',
-            name: 'entity-clip',
-            component: Clip,
-            meta: {
-                requiresAuth: false,
-            }
-        },
-        {
-            path: '/entity/detection',
-            name: 'entity-detection',
-            component: Detection,
-            meta: {
-                requiresAuth: false,
-            }
-        },
-        {
-            path: '/entity/bridge',
-            name: 'entity-bridge',
-            component: Bridge,
-            meta: {
-                requiresAuth: false,
-            }
-        },
-        {
-            path: '/entity/track',
-            name: 'entity-track',
-            component: Track,
-            meta: {
-                requiresAuth: false,
-            }
         },
     ]
 })
